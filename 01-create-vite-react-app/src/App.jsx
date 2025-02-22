@@ -1,4 +1,5 @@
 import Chai from "./Chai";
+import Variable from "./Variable";
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
     <>
       <Chai />
       <h3>Chai Aur React with vite | Atharva</h3>
+      <Variable />
     </>
   );
 }
