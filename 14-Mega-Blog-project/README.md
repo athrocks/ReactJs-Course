@@ -85,3 +85,6 @@ The Mega Blog project is a comprehensive blogging platform built with modern web
    ```bash
    npm run dev
    ```
+
+---
+
