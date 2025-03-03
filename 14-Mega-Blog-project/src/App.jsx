@@ -20,7 +20,11 @@ function App() {
       .finally(() => setLoading(false));
   }, []);
 
-  if (!loading) {
+  if (loading) {
+    return <div>Loading...</div>; // Show loading text instead of nothing
+  }
+
+  return (
     <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
       <div className="w-full block">
         <Header />
@@ -29,10 +33,8 @@ function App() {
         </main>
         <Footer />
       </div>
-    </div>;
-  } else {
-    return null;
-  }
+    </div>
+  );
 }
 
 export default App;
