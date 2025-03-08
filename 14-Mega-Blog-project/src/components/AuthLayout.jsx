@@ -14,23 +14,24 @@ function Protected({ children, authentication = true }) {
     //     navigate("/login")
     // }
 
-    //let authValue = authStatus === true ? true : false
+    // let authValue = authStatus === true ? true : false
 
-    if (authentication && authValue) {
+    // if (authentication && authValue) {
+    //   navigate("/login");
+    // } else if (!authentication && authValue) {
+    //   navigate("/");
+    // }
+
+    if (authentication && authStatus !== authentication) {
       navigate("/login");
-    } else if (!authentication && authValue) {
+    } else if (!authentication && authStatus !== authentication) {
       navigate("/");
     }
-
-    // if(authentication && authStatus !== authentication){
-    //     navigate("/login")
-    // } else if(!authentication && authStatus !== authentication){
-    //     navigate("/")
-    // }
+    
     setLoader(false);
   }, [authStatus, navigate, authentication]);
 
   return loader ? <h1>Loading...</h1> : <>{children}</>;
 }
 
-export default AuthLayout;
+export default Protected;
