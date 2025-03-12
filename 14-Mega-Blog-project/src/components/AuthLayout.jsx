@@ -8,20 +8,6 @@ function Protected({ children, authentication = true }) {
   const authStatus = useSelector((state) => state.auth.status);
 
   useEffect(() => {
-    // if (authStatus ===true){
-    //     navigate("/")
-    // } else if (authStatus === false) {
-    //     navigate("/login")
-    // }
-
-    // let authValue = authStatus === true ? true : false
-
-    // if (authentication && authValue) {
-    //   navigate("/login");
-    // } else if (!authentication && authValue) {
-    //   navigate("/");
-    // }
-
     if (authentication && authStatus !== authentication) {
       navigate("/login");
     } else if (!authentication && authStatus !== authentication) {
@@ -31,7 +17,13 @@ function Protected({ children, authentication = true }) {
     setLoader(false);
   }, [authStatus, navigate, authentication]);
 
-  return loader ? <h1>Loading...</h1> : <>{children}</>;
+  return loader ? (
+    <div className="flex justify-center items-center min-h-screen">
+      <h1 className="text-2xl font-semibold text-gray-700">Loading...</h1>
+    </div>
+  ) : (
+    <>{children}</>
+  );
 }
 
 export default Protected;
