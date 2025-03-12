@@ -1,9 +1,7 @@
-// Real Time Editor
 import React from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { Controller } from "react-hook-form";
 
-// https://react-hook-form.com/get-started#IntegratingControlledInputs
 function RTE({ name, control, label, defaultValue = "" }) {
   return (
     <div className="w-full">
@@ -14,9 +12,9 @@ function RTE({ name, control, label, defaultValue = "" }) {
         control={control}
         render={({ field: { onChange } }) => (
           <Editor
+            apiKey="y8rfuejnfx2w9k416gah0aoi3ba7ho7nnaprc7r7d6t5xjuh" // <-- Add your TinyMCE API Key here
             initialValue={defaultValue}
             init={{
-              initialValue: defaultValue,
               height: 500,
               menubar: true,
               plugins: [
@@ -42,7 +40,7 @@ function RTE({ name, control, label, defaultValue = "" }) {
                 "anchor",
               ],
               toolbar:
-                "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |removeformat | help",
+                "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |removeformat | help",
               content_style:
                 "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
             }}

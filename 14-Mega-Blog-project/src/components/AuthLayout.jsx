@@ -27,7 +27,7 @@ function Protected({ children, authentication = true }) {
     } else if (!authentication && authStatus !== authentication) {
       navigate("/");
     }
-    
+
     setLoader(false);
   }, [authStatus, navigate, authentication]);
 

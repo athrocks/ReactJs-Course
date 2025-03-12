@@ -32,7 +32,7 @@ export class Service {
         }
       );
     } catch (error) {
-      console.log("Error is: ", error);
+      console.log("Appwrite serive :: createPost :: error", error);
     }
   }
 
@@ -50,7 +50,7 @@ export class Service {
         }
       );
     } catch (error) {
-      console.log("Error is: ", error);
+      console.log("Appwrite serive :: updatePost :: error", error);
     }
   }
 
@@ -63,7 +63,7 @@ export class Service {
       );
       return true;
     } catch (error) {
-      console.log("Error is: ", error);
+      console.log("Appwrite serive :: deletePost :: error", error);
       return false;
     }
   }
@@ -76,7 +76,7 @@ export class Service {
         slug
       );
     } catch (error) {
-      console.log("Error is: ", error);
+      console.log("Appwrite serive :: getPost :: error", error);
       return false;
     }
   }
@@ -91,7 +91,7 @@ export class Service {
         [Query.equal("status", "active")]
       );
     } catch (error) {
-      console.log("Error is: ", error);
+      console.log("Appwrite serive :: getPosts :: error", error);
       return false;
     }
   }
@@ -102,9 +102,13 @@ export class Service {
   // here file param is actual file BLOB
   async uploadFile(file) {
     try {
-      return await this.storage.createFile(conf.appwriteBucketId, ID.unique(), file);
+      return await this.storage.createFile(
+        conf.appwriteBucketId,
+        ID.unique(),
+        file
+      );
     } catch (error) {
-      console.log("Error is: ", error);
+      console.log("Appwrite serive :: uploadFile :: error", error);
       return false;
     }
   }
@@ -114,7 +118,7 @@ export class Service {
       await this.storage.deleteFile(conf.appwriteBucketId, fileId);
       return true;
     } catch (error) {
-      console.log("Error is: ", error);
+      console.log("Appwrite serive :: deleteFile :: error", error);
       return false;
     }
   }
