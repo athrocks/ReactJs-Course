@@ -2,6 +2,8 @@ import React from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { Controller } from "react-hook-form";
 
+const apiKey = import.meta.env.VITE_TINYMCE_API_KEY;
+
 function RTE({ name, control, label, defaultValue = "" }) {
   return (
     <div className="w-full">
@@ -12,7 +14,7 @@ function RTE({ name, control, label, defaultValue = "" }) {
         control={control}
         render={({ field: { onChange } }) => (
           <Editor
-            apiKey="y8rfuejnfx2w9k416gah0aoi3ba7ho7nnaprc7r7d6t5xjuh" // <-- Add your TinyMCE API Key here
+            apiKey={apiKey}
             initialValue={defaultValue}
             init={{
               height: 500,

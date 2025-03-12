@@ -70,7 +70,7 @@ export class Service {
 
   async getPost(slug) {
     try {
-      return await this.databases.listDocuments(
+      return await this.databases.getDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         slug
@@ -123,7 +123,7 @@ export class Service {
     }
   }
 
-  getFilePreview() {
+  getFilePreview(fileId) {
     return this.storage.getFilePreview(conf.appwriteBucketId, fileId);
   }
 }
