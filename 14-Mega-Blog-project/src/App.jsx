@@ -21,18 +21,20 @@ function App() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>; // Show loading text instead of nothing
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+        <p className="text-lg font-semibold text-gray-600">Loading...</p>
+      </div>
+    );
   }
 
   return (
-    <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
-      <div className="w-full block">
-        <Header />
-        <main>
-          TODO: <Outlet />
-        </main>
-        <Footer />
-      </div>
+    <div className="min-h-screen flex flex-col bg-gray-100">
+      <Header />
+      <main className="flex-1">
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 }
