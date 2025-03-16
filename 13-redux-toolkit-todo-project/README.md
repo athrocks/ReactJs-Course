@@ -16,7 +16,19 @@
      export const store = configureStore({});
      ```
 
-5. Create Reducer
+5. Configure in main.jsx
+   ```js
+      import { Provider } from "react-redux";
+      import { store } from "./app/store.js";
+      
+      createRoot(document.getElementById("root")).render(
+        <Provider store={store}>
+          <App />
+        </Provider>
+      );
+   ```
+
+6. Create Reducer
 
    - create `features/todo/todoSlice.js` in `src`
 
@@ -57,7 +69,7 @@
      export default todoSlice.reducer;
      ```
 
-6. Update `store.js`
+7. Update `store.js`
 
    ```js
    import { configureStore } from "@reduxjs/toolkit";
@@ -68,6 +80,6 @@
    });
    ```
 
-7. Create `AddTodo.jsx` & `Todos.jsx`
+8. Create `AddTodo.jsx` & `Todos.jsx`
 
-8. Use `useSelector`, `useDispatch`
+9. Use `useSelector`, `useDispatch`
